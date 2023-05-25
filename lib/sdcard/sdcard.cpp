@@ -47,10 +47,10 @@ void sdunInit(){
 bool formatSD(){
   Printer.print("Start Formatting the Sd card....\n");
   if(!removeContentRecursivly("/")){
-    Printer.println("\tSd card Formating unsuccessful\n");
+    // Printer.println("\tSd card Formating unsuccessful\n");
     return false;
   }
-  Printer.println("\tSd card formated successfully.\n");
+  // Printer.println("\tSd card formated successfully.\n");
   return true;
 }
 // end of formating part

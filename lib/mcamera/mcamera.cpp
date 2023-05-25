@@ -32,7 +32,7 @@ bool cameraInit(){
   config.xclk_freq_hz = 20000000;
   config.pixel_format = PIXFORMAT_JPEG;
   config.frame_size = FRAMESIZE_SVGA;
-  config.jpeg_quality = 10;
+  config.jpeg_quality = 8;
   config.fb_count = 2;
   Printer.println("\tCamera setup succussfully");
   Printer.println("\tCamera init is starting....");

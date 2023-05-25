@@ -37,7 +37,7 @@ String getFileName(){
   String MONTH_="/"+String(newMonth);
   String MONTHDAY = MONTH_+"/"+String(newDay);
   String MONTHDAYHOUR = MONTHDAY+"/"+String(newHour);
-  String fileName = "/"+String(MINUTES)+String(SECONDS)+String(MILIS);
+  String fileName = "/"+String(MINUTES)+String(SECONDS)+String(MILIS)+".jpg";
   if(newMonth!=MONTH){
     MONTH=newMonth;
     mkdir(MONTH_.c_str());

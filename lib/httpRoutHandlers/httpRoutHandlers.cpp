@@ -4,6 +4,7 @@
 #include "mcamera.h"
 #include "webserverhandler.h"
 #include "WiFi.h"
+#include "sdcard.h"
 
 const char* sdCardUsedFreePrecentages(){
   String arguments[]={"\"name\"","\"age\""};
@@ -27,4 +28,26 @@ void stateHandler(WiFiClient *client){
     else{
       sendHttpResponse(client,"stop","text/plain");
     }
+}
+
+void sdCardDetailsHandler(WiFiClient *client){
+  String arguments[]={"\"totalcapacity\"","\"usedcapacity\"","\"usablecapacity\"","\"freecapacity\""};
+  String totalcapacity = String(SdTotalCapacity('M'));
+  double usedcapacity = SdUsedCapacity('M');
+  double usablecapacity = SdTotalUsableCapacity('M');
+  double freecapacity = usablecapacity-usedcapacity;
+  String values[]={totalcapacity.c_str(),String(usedcapacity).c_str(),String(usablecapacity).c_str(),String(freecapacity).c_str()};
+
+  sendHttpResponse(client, jsonCreater(arguments,values,4),"application/json");
+
+
+}
+
+void sdCardFormatter(WiFiClient *client){
+  if(formatSD()){
+    sendHttpResponse(client,"formatted","text/plain");
+  }
+  else{
+    sendHttpResponse(client,"not formatted","text/plain");
+  }
 }

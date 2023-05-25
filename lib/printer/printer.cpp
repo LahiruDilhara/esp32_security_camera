@@ -10,27 +10,27 @@ HardwareSerial &outputStream = Serial;
 
 template<typename T>
 void Debug::print(T data){
-  outputStream.print(data);
+  // outputStream.print(data);
 }
 template<typename T>
 void Debug::print(T *data){
-  outputStream.print(data);
+  // outputStream.print(data);
 }
 template<typename T>
 void Debug::write(T data){
-  outputStream.write(data);
+  // outputStream.write(data);
 }
 template<typename T>
 void Debug::println(T data){
-  outputStream.println(data);
+  // outputStream.println(data);
 }
 template<typename T>
 void Debug::println(T *data){
-  outputStream.println(data);
+  // outputStream.println(data);
 }
 template<typename T,typename N>
 void Debug::printf(T data,N format){
-  outputStream.printf(data,format);
+  // outputStream.printf(data,format);
 }
 
 extern Debug Printer = Debug();

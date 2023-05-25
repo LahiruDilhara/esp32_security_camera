@@ -45,6 +45,12 @@ void route(String &currentLine,WiFiClient *client){
   else if(currentLine.endsWith("GET /json HTTP/1.1")){
     sendHttpResponse(client, sdCardUsedFreePrecentages(),"application/json");
   }
+  else if(currentLine.endsWith("GET /camerastat HTTP/1.1")){
+    sdCardDetailsHandler(client);
+  }
+  else if(currentLine.endsWith("GET /format HTTP/1.1")){
+    sdCardFormatter(client);
+  }
 
 }
 
